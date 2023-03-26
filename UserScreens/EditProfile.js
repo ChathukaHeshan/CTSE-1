@@ -201,5 +201,43 @@ const EditProfile = ({ route, navigation }) => {
     );
 
 }
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#000",
+    color: "#fff",
+  },
+  textBoxes: {
+    width: "80%",
+    marginLeft: 20,
+    fontSize: 16,
+    padding: 10,
+    borderColor: "grey",
+    borderBottomWidth: 2,
+    borderRadius: 10,
+    marginTop: 10,
+    marginBottom: 10,
+    color: "#fff",
+  },
+  button: {
+    backgroundColor: "#f7d081",
+    marginLeft: 30,
+    marginRight: 30,
+    marginTop: 5,
+    borderRadius: 15,
+    alignItems: "center",
+    padding: 10,
+    justifyContent: "center",
+  },
+
+  acc: {
+    height: 80,
+    width: 80,
+    alignSelf: "center",
+    margin: 30,
+    borderRadius: 50,
+    borderWidth: 1,
+    borderColor: "white",
+  },
+});
 export default EditProfile;
