@@ -356,7 +356,7 @@ const styles = StyleSheet.create({
     },
     priceText: {
         paddingTop: 30,
-        fontSize: 16,
+        
         color: "#fff",
         fontWeight: "500",
         width: 60,
