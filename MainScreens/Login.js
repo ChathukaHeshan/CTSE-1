@@ -79,8 +79,6 @@ export default function Login({ navigation }) {
                         .doc(uid)
                         .get()
                         .then(firestoreDocument => {
-
-
                             if (!firestoreDocument.exists) {
                                 setPasswordError("User does not exist anymore");
                                 return;
@@ -185,55 +183,3 @@ export default function Login({ navigation }) {
 
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-
-    },
-    con: {
-        flex: 1.5,
-        margin: 10,
-        marginTop: -50,
-    },
-    textBoxes: {
-        width: '65%',
-        fontSize: 18,
-        padding: 10,
-        borderColor: 'white',
-        borderBottomWidth: 2,
-        color: '#fff',
-        borderRadius: 10,
-        paddingTop: 30,
-        marginBottom: 10
-    },
-    acc: {
-        width: '100%',
-        height: 200,
-        height: 80,
-        width: 80,
-        alignSelf: "center",
-        borderRadius: 50
-    },
-    button: {
-        backgroundColor: '#f7d081',
-        width: 100,
-        marginLeft: 10,
-        marginTop: 30,
-        borderRadius: 5,
-        alignItems: "center",
-        padding: 10,
-        justifyContent: 'center'
-    },
-    buttonTitle: {
-        color: '#000',
-        fontSize: 20,
-        fontWeight: "bold",
-
-    },
-    activityIndicator: {
-        paddingTop: "95%",
-        paddingLeft: "65%",
-        position: 'absolute',
-    }
-});
