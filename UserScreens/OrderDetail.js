@@ -1,13 +1,9 @@
 import {
     Text,
     View,
-    Image,
     StyleSheet,
     FlatList,
-    Alert,
-    TouchableOpacity,
     ScrollView,
-    ImageBackground
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useState, useEffect } from "react";
@@ -15,7 +11,7 @@ import { firebase } from "../config";
 import { BackHandler } from "react-native";
 
 export default function OrderDetail({ navigation }) {
-    //Getting user id
+
     const firestore = firebase.firestore;
     const auth = firebase.auth;
     const [user, setUser] = useState(null);
@@ -35,11 +31,6 @@ export default function OrderDetail({ navigation }) {
     }, []);
     const uid = user?.id;
     const urname = user?.username;
-    //const urname = firestoreDocument.data()?.username
-
-    console.log(uid);
-    console.log(urname);
-
     const timestamp = firebase.firestore.FieldValue.serverTimestamp();
     const [data, setData] = useState([]);
     const [cartList, setCartList] = useState([]);
@@ -113,7 +104,6 @@ export default function OrderDetail({ navigation }) {
                     keyExtractor={(_, i) => String(i)}
                     renderItem={({ item }) => (
                         <View>
-                            {/*<TouchableOpacity onPress={showConfirmDialog}>*/}
                             <View style={{
                                 borderWidth: 1, borderColor: 'gold', backgroundColor: "#000", padding: 10, borderRadius: 10,
                                 marginBottom: 10
@@ -127,10 +117,6 @@ export default function OrderDetail({ navigation }) {
                                                     <View style={{ flexDirection: 'row' }}>
                                                         <MaterialCommunityIcons name="marker-check" size={35} color={'green'} />
                                                         <Text style={{ fontSize: 18, fontWeight: 'bold', color: 'gold', textAlign: 'center', paddingLeft: 30, paddingRight: 30 }}>Your Order is{item.status.pending} Confirmed</Text>
-
-                                                        {/*<TouchableOpacity onPress={() => Deletefeedback(item)}>
-                                  <MaterialCommunityIcons name="delete" color={'red'} size={30} />
-                                </TouchableOpacity>*/}
                                                     </View>
                                                 )
                                                 :
@@ -138,32 +124,16 @@ export default function OrderDetail({ navigation }) {
                                                     <MaterialCommunityIcons name="alert" size={35} color={'orange'} />
                                                     <Text style={{ fontSize: 18, fontWeight: 'bold', color: 'gold', textAlign: 'center', paddingLeft: 30, paddingRight: 30 }}>Your Order is{item.status.pending} Pending</Text>
 
-                                                    {/*<TouchableOpacity onPress={() => Deletefeedback(item)}>
-                                <MaterialCommunityIcons name="delete" color={'red'} size={30} />
-                              </TouchableOpacity>*/}
 
                                                 </View>
                                         }
 
 
                                         <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#fff', textAlign: 'center' }}>OrderList</Text>
-                                        {
-                                            item.cartList.map((cartItem, index) => {
-                                                //console.log("cart Item",cartItem)
-                                                return (
-                                                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 5 }} key={index}>
-                                                        
-                                                    </View>
-                                                )
-                                            }
-                                            )
-                                        }
                                         <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
                                             <MaterialCommunityIcons name="cash-100" color={'#f7d081'} size={25} />
                                             <Text style={styles.textInfo}>LKR {item.total}</Text>
                                         </View>
-
-
 
                                         <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#fff', textAlign: 'center' }}>Your Info</Text>
                                         <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
@@ -171,11 +141,9 @@ export default function OrderDetail({ navigation }) {
                                             <Text style={styles.textInfo}>{item.username}</Text>
                                         </View>
                                         <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
-                                            <MaterialCommunityIcons name="phone" color={'white'} size={25} />
                                             <Text style={styles.textInfo}>{item.phone}</Text>
                                         </View>
                                         <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
-                                            <MaterialCommunityIcons name="home" color={'white'} size={25} />
                                             <Text style={styles.textInfo}>{item.address}</Text>
                                         </View>
                                         

@@ -141,12 +141,10 @@ const MyCart = ({ route, navigation }) => {
             'createdAt': timestamp,
             // "orderId" : 
         };
-        // console.log(cartOrder);
         firebase
             .firestore()
             .collection("orders")
-            //.doc("client "+urname)
-            //.collection("cart "+ uid )
+
             .doc(cartOrder.id)
             .set(cartOrder)
             .then(() => {
@@ -227,54 +225,8 @@ const MyCart = ({ route, navigation }) => {
                                 >
                                     <Text style={{ color: "#fff" }}>User ID</Text>
                                     <Text style={{ color: "#fff" }}>{user?.id}</Text>
-                                </View>
-                                <View
-                                    style={{
-                                        flexDirection: "row",
-                                        justifyContent: "space-between",
-                                        padding: 5,
-                                    }}
-                                >
-                                    <Text style={{ color: "#fff" }}>Name</Text>
-                                    <Text style={{ color: "#fff" }}>{user?.username}</Text>
-                                </View>
-
-                                <View
-                                    style={{
-                                        flexDirection: "row",
-                                        justifyContent: "space-between",
-                                        padding: 5,
-                                    }}
-                                >
-                                    <Text style={{ color: "#fff" }}>Phone</Text>
-                                    <Text style={{ color: "#fff" }}>{user?.phone}</Text>
-                                </View>
-                                <View
-                                    style={{
-                                        flexDirection: "row",
-                                        justifyContent: "space-between",
-
-                                        borderBottomWidth: 1,
-                                        paddingBottom: 10,
-                                        borderBottomColor: "#ccc",
-                                        margin: 5,
-                                    }}
-                                >
-                                    <Text style={{ color: "#fff" }}>Address</Text>
-                                    <Text style={{ color: "#fff" }}>{user?.address}</Text>
-                                </View>
+                                </View>                     
                             </View>
-
-                            {/* <View
-                                style={{
-                                    flexDirection: "row",
-                                    justifyContent: "space-between",
-                                    padding: 5,
-                                }}
-                            >
-                                <Text style={{ color: "#fff" }}>Shipping Fee</Text>
-                                <Text style={{ color: "#fff" }}>LKR 10</Text>
-                            </View> */}
                             <View
                                 style={{
                                     flexDirection: "row",
@@ -364,28 +316,7 @@ const styles = StyleSheet.create({
     icon: {
         paddingTop: 20,
     },
-    textBoxes: {
-        fontSize: 10,
-        borderWidth: 1,
-        borderColor: "#fff",
-        padding: 8,
-        color: "gold",
-        width: "50%",
-    },
-    btn: {
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "white",
-        padding: 10,
 
-        width: "100%",
-        borderRadius: 20,
-    },
-    iimage: {
-        width: 80,
-        height: 80,
-        borderRadius: 15,
-    },
     noItem: {
         fontSize: 20,
         fontWeight: 'bold',

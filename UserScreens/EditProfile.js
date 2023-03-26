@@ -110,21 +110,6 @@ const EditProfile = ({ route, navigation }) => {
 
                         <View style={{ flexDirection: 'row' }}>
 
-                            <MaterialCommunityIcons name="phone" color={'#f7d081'} size={30} style={{ paddingTop: 25 }} />
-
-                            <TextInput
-                                style={styles.textBoxes}
-                                onChangeText={(text) => setphone(text)}
-                                value={phone}
-                                keyboardType={'phone-pad'}
-                                placeholderTextColor="#fff"
-                                autoCapitalize="none"
-                            />
-
-                        </View>
-
-                        <View style={{ flexDirection: 'row' }}>
-
                             <MaterialCommunityIcons name="home" color={'#f7d081'} size={30} style={{ paddingTop: 25 }} />
 
                             <TextInput
@@ -160,12 +145,6 @@ const EditProfile = ({ route, navigation }) => {
                                     width: '60%',
                                     marginLeft: 20,
                                     fontSize: 16,
-                                    padding: 10,
-                                    borderColor: 'grey',
-                                    borderBottomWidth: 2,
-                                    borderRadius: 10,
-                                    marginTop: 10,
-                                    marginBottom: 10,
                                     color: "#fff"
                                 }}
                                 onChangeText={(text) => setnewPassword(text)}
@@ -181,12 +160,6 @@ const EditProfile = ({ route, navigation }) => {
                                 style={{
                                     backgroundColor: '#f7d081',
                                     marginLeft: 30,
-                                    marginRight: 30,
-                                    marginTop: 20,
-                                    borderRadius: 15,
-                                    alignItems: "center",
-                                    width: 70,
-                                    height: 50,
                                     justifyContent: 'center'
                                 }}
                             >
@@ -207,29 +180,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#000",
     color: "#fff",
   },
-  textBoxes: {
-    width: "80%",
-    marginLeft: 20,
-    fontSize: 16,
-    padding: 10,
-    borderColor: "grey",
-    borderBottomWidth: 2,
-    borderRadius: 10,
-    marginTop: 10,
-    marginBottom: 10,
-    color: "#fff",
-  },
-  button: {
-    backgroundColor: "#f7d081",
-    marginLeft: 30,
-    marginRight: 30,
-    marginTop: 5,
-    borderRadius: 15,
-    alignItems: "center",
-    padding: 10,
-    justifyContent: "center",
-  },
-
   acc: {
     height: 80,
     width: 80,
