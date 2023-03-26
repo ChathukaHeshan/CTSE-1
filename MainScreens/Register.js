@@ -23,7 +23,6 @@ export default function Register({ navigation }) {
     const [address, setaddress] = useState("");
     const [usernameError, setusernameError] = useState("");
     const [phoneError, setphoneError] = useState("");
-    const [addressError, setaddressError] = useState("");
     const [passwordError, setPasswordError] = useState("");
     const [confirmpasswordError, setconfirmPasswordError] = useState("");
     
@@ -50,7 +49,6 @@ export default function Register({ navigation }) {
             setEmailError("");
             emailValid = true;
         }
-        //phone validation
         var phoneValid = false;
         if (phone.length == 0) {
             setphoneError("Enter a phone number.");
@@ -58,7 +56,6 @@ export default function Register({ navigation }) {
             setphoneError("");
             phoneValid = true;
         }
-        //address validation
         var addressValid = false;
         if (address.length == 0) {
             setaddressError("Enter an Address. ");
@@ -74,8 +71,6 @@ export default function Register({ navigation }) {
             setPasswordError("");
             passwordValid = true;
         }
-        //confirmpassword validation
-        var confirmpasswordValid = false;
         if (confirmPassword.length == 0) {
             setconfirmPasswordError("Enter Password Confirmation.");
         } else if (confirmPassword !== password) {
@@ -210,24 +205,6 @@ export default function Register({ navigation }) {
                             {phoneError.length > 0 && (
                                 <Text style={{ color: "red" }}>{phoneError}</Text>
                             )}
-                            <TextInput
-                                value={address}
-                                placeholderTextColor="#fff"
-                                onChangeText={(text) => setaddress(text)}
-                                placeholder="Enter Your Address"
-                                style={styles.textBoxes}
-                            ></TextInput>
-                            {addressError.length > 0 && (
-                                <Text style={{ color: "red" }}>{addressError}</Text>
-                            )}
-                            <TextInput
-                                value={password}
-                                placeholderTextColor="#fff"
-                                secureTextEntry
-                                onChangeText={(text) => setPassword(text)}
-                                placeholder="Password"
-                                style={styles.textBoxes}
-                            ></TextInput>
                             {passwordError.length > 0 && (
                                 <Text style={{ color: "red" }}>{passwordError}</Text>
                             )}

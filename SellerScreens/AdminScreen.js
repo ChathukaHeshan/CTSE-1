@@ -11,8 +11,6 @@ import {
     Alert
 } from "react-native";
 import ViewMoreText from 'react-native-view-more-text';
-import { Ionicons } from "@expo/vector-icons";
-import { set } from "react-native-reanimated";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { firebase } from "../config";
 
@@ -70,7 +68,6 @@ const AdminScreen = ({ route, navigation }) => {
                 {
                     text: "Yes",
                     onPress: () => {
-                        //console.log("User pressed Later")
                         dataRef.doc(data.id).delete()
                         dataRefTrend.doc(data.id).delete()
                             .then(() => {
@@ -83,8 +80,7 @@ const AdminScreen = ({ route, navigation }) => {
                         setShowBox(false);
                     },
                 },
-                // The "No" button
-                // Does nothing but dismiss the dialog when tapped
+
                 {
                     text: "No",
                 },
@@ -118,7 +114,6 @@ const AdminScreen = ({ route, navigation }) => {
 
     }, [navigation]);
 
-    // Show more or less Text
     const renderViewMore = (onPress) => {
         return (
             <TouchableOpacity onPress={onPress} style={{ paddingTop: 10 }}>
@@ -164,7 +159,6 @@ const AdminScreen = ({ route, navigation }) => {
                                                 "",
                                                 "Do you want to update this item?",
                                                 [
-                                                    // The "Yes" button
                                                     {
                                                         text: "Yes",
                                                         onPress: () => {
@@ -172,8 +166,6 @@ const AdminScreen = ({ route, navigation }) => {
                                                             setShowBox(false);
                                                         },
                                                     },
-                                                    // The "No" button
-                                                    // Does nothing but dismiss the dialog when tapped
                                                     {
                                                         text: "No",
                                                     },
@@ -191,13 +183,6 @@ const AdminScreen = ({ route, navigation }) => {
                                     <Text style={styles.padd}>
                                         {item.category_name}
                                     </Text>
-                                    <TouchableOpacity onPress={() => navigation.navigate("TrendProduct", { item })} style={{ left: 10, }}>
-                                        <Text style={{ color: "#000", padding: 5, backgroundColor: "#f7d081", fontWeight: '700', borderRadius: 8 }}> Add to List </Text>
-                                    </TouchableOpacity>
-
-                                    <TouchableOpacity onPress={() => showConfirmDialog(item)} style={{ left: 27, }}>
-                                        <Ionicons name="trash" color={"#f7d081"} size={30} />
-                                    </TouchableOpacity>
                                 </View>
                                 <View style={{ padding: 10, flexDirection: "row" }}>
                                     <View>
@@ -262,19 +247,6 @@ const styles = StyleSheet.create({
         bottom: 30,
         borderRadius: 100,
     },
-    adminText: {
-        fontSize: 20,
-        color: "white",
-        fontWeight: "500",
-        letterSpacing: 1,
-    },
-    title: {
-        color: "#f7d081",
-        marginBottom: 12,
-        fontSize: 23,
-        marginLeft: "2%",
-        fontWeight: 'bold'
-    },
     text: {
         fontSize: 16,
         color: "#fff",
@@ -295,40 +267,5 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         fontSize: 18,
     },
-    Box: {
-        padding: 5,
-        marginBottom: 10,
-        borderWidth: 1,
-        borderColor: "#fff",
-        backgroundColor: "#000",
-        borderRadius: 15,
-    },
-    container: {
-        width: "100%",
-        height: "100%",
-        backgroundColor: "#000",
-        paddingTop: 18,
-        padding: 10
-    },
-    decText: {
-        fontSize: 12,
-        letterSpacing: 1.5,
-        color: '#f7d081',
-        fontWeight: 'bold',
-    },
-    tinyLogo: {
-        width: 55,
-        height: 55,
-        borderRadius: 40,
-        borderWidth: 1,
-        borderColor: "#fff",
-    },
-    text1: {
-        fontSize: 13,
-        color: "#fff",
-        paddingBottom: 10,
-        fontWeight: "500",
-        letterSpacing: 1,
-        width: 150,
-    },
+
 });

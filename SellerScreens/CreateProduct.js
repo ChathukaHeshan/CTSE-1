@@ -8,7 +8,6 @@ import { BackHandler } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 const CreateProduct = ({ navigation }) => {
 
-    const [product, setProduct] = useState([]);
     const dataRef = firebase.firestore().collection('products')
 
     const [productName, setProductName] = useState('');
@@ -17,19 +16,17 @@ const CreateProduct = ({ navigation }) => {
     const [category, setCategory] = useState('');
     const [error, setError] = useState({});
 
-    //category
     const [data, setData] = useState([]);
     const catRef = firebase.firestore().collection('categories');
     const [name, setName] = useState('')
     const [selectedItem, setSelectedItem] = useState();
 
     const [show, setshow] = useState(false);
-    //image
+
     const [image, setImage] = useState(null);
     const [uploading, setUploading] = useState(false);
     const [imgURL, setImageURL] = useState("");
 
-    //image picker
     const pickImage = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
             mediaTypes: ImagePicker.MediaTypeOptions.Images,
@@ -47,7 +44,6 @@ const CreateProduct = ({ navigation }) => {
         readCat();
     }, [])
 
-    // read data from Categories
     const readCat = () => {
         catRef
             .orderBy('createdAt', 'desc')
@@ -67,8 +63,6 @@ const CreateProduct = ({ navigation }) => {
             )
     }
 
-
-    //Add image and product data
     const add = async () => {
         setshow(true)
         setTimeout(() => {
@@ -105,16 +99,6 @@ const CreateProduct = ({ navigation }) => {
             })
         }
 
-        if (!price) {
-            setError((prev) => {
-                setshow(false)
-                return {
-                    ...prev,
-                    price: 'Please Enter Price',
-                }
-            })
-        }
-
         if (!selectedItem) {
             setError((prev) => {
                 setshow(false)
@@ -138,7 +122,7 @@ const CreateProduct = ({ navigation }) => {
                 const filename = image.uri.substring(image.uri.lastIndexOf("/") + 1);
                 var ref = firebase.storage().ref("products_images/").child(filename).put(blob);
                 try {
-                    await ref;   // const setImageURL = await firebase.storage().ref(`Shoes/${filename}`).getDownloadURL();//        console.log("print ref :", setImageURL);
+                    await ref;  
                 } catch (e) {
                     console.log(e);
                 }
@@ -146,9 +130,9 @@ const CreateProduct = ({ navigation }) => {
                 console.log("print ref :", setImageURL);
     
                 setUploading(false);
-                //Alert.alert("Photo uploaded..!!");  //optional
-                const FireImage = { fireuri: filename }; //optional
-                console.log(FireImage);   //optional
+      
+                const FireImage = { fireuri: filename };
+                console.log(FireImage);  
     
                 setImage(null);
     
@@ -167,11 +151,9 @@ const CreateProduct = ({ navigation }) => {
                 };
                 try {
                     await dataRef.add(data);
-                    //imgURL(""),
                     setProductName("");
                     setDesc("");
                     setPrice("");
-                    //setCategory("");
                     Alert.alert("Successfully added!");
                     navigation.dispatch(
                       CommonActions.reset({
@@ -247,19 +229,6 @@ const CreateProduct = ({ navigation }) => {
                 {
                     !desc && 
                     <Text style={{ color: 'red', fontSize: 18, fontWeight: '300', marginLeft: 60 }}>{error.desc}</Text>
-                }
-
-                <TextInput
-                    style={styles.input}
-                    placeholder='Price'
-                    onChangeText={(text) => setPrice(text)}
-                    value={parseFloat(price)}
-                    keyboardType='numeric'
-                    placeholderTextColor="#c4c4c2"
-                />
-                {
-                    !price && 
-                    <Text style={{ color: 'red', fontSize: 18, fontWeight: '300', marginLeft: 60 }}>{error.price}</Text>
                 }
 
                 <View style={styles.select}>
@@ -361,8 +330,5 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         justifyContent: "center",
         alignItems: "center",
-    },
-    ImgBot: {
-        width: "38%",
     },
 })

@@ -5,7 +5,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { BackHandler } from "react-native";
 import ViewMoreText from 'react-native-view-more-text';
-import { ScrollViewBase } from "react-native";
 
 const ProductDetail = ({ route, navigation }) => {
     const dataRef = firebase.firestore().collection("products");
@@ -197,16 +196,6 @@ const styles = StyleSheet.create({
         backgroundColor: "white",
         width: '90%',
         borderRadius: 15, marginTop: -20, margin: 15,
-    },
-    textcount: {
-        //marginTop: 10,
-        fontSize: 16,
-        color: '#f7d081',
-        fontWeight: "400",
-        letterSpacing: 1,
-        padding: 10,
-        borderWidth: 1,
-        borderColor: '#f7d081'
     },
     text: {
         fontSize: 16,
