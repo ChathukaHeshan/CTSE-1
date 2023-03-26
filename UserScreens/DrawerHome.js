@@ -408,74 +408,92 @@ export default function DrawerHome({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    width: "100%",
-    height: "100%",
-  },
-  posterImage: {
-    width: "100%",
-    height: ANCHO_CONTENEDOR * 1.2,
-    resizeMode: "cover",
-    borderRadius: 24,
-    margin: 0,
-    marginBottom: 10,
-  },
-  imgLogo: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    borderWidth: 2,
-    borderColor: "lightgray",
-  },
-  Trend: {
-    width: 150,
-    height: 150,
-    borderRadius: 3,
-    margin: 15,
-    marginTop: 0,
-    borderWidth: 0.2,
-    borderColor: "lightgray",
-  },
-  label1: {
-    fontSize: 16,
-    color: "white",
-    padding: 10,
-    fontWeight: "300",
-    marginBottom: 18,
-  },
-  label2: {
-    fontSize: 21,
-    color: "white",
-    paddingLeft: 10,
-    fontWeight: "700",
-    marginBottom: 30,
-    letterSpacing: 1,
-  },
+    container: {
+        flex: 1,
+        backgroundColor: "#fff",
+        width: "100%",
+        height: "100%",
 
-  label: {
-    fontSize: 18,
-    color: "gold",
-    fontWeight: "bold",
-    padding: 10,
-  },
-  row: {
-    flexDirection: "row",
-    shadowColor: "gray",
-    shadowOffset: { width: 5, height: 7 },
-    shadowOpacity: 0.8,
-    elevation: 15,
-  },
-  column: {
-    flexDirection: "column",
-  },
-  bottom: {
-    width: 75,
-    margin: 5,
-    alignItems: "center",
-    justifyContent: "center",
-  },
+    },
+    posterImage: {
+        width: "100%",
+        height: ANCHO_CONTENEDOR * 1.2,
+        resizeMode: "cover",
+        borderRadius: 24,
+        margin: 0,
+        marginBottom: 10,
+    },
+    imgLogo: {
+        width: 60,
+        height: 60,
+        borderRadius: 30,
+        borderWidth: 2,
+        borderColor: "lightgray",
+    },
+    Trend: {
+        width: 150,
+        height: 150,
+        borderRadius: 3,
+        margin: 15,
+        marginTop: 0,
+        borderWidth: 0.2,
+        borderColor: "lightgray",
+    },
+    label1: {
+        fontSize: 16,
+        color: "white",
+        padding: 10,
+        fontWeight: "300",
+        marginBottom: 18,
+    },
+    label2: {
+        fontSize: 21,
+        color: "white",
+        paddingLeft: 10,
+        fontWeight: "700",
+        marginBottom: 30,
+        letterSpacing: 1,
+    },
+
+    label: {
+        fontSize: 18,
+        color: "gold",
+        fontWeight: "bold",
+        padding: 10,
+    },
+    row: {
+        flexDirection: "row",
+        shadowColor: "gray",
+        shadowOffset: { width: 5, height: 7 },
+        shadowOpacity: 0.8,
+        elevation: 15,
+    },
+    column: {
+        flexDirection: "column",
+    },
+    bottom: {
+        width: 75,
+        margin: 5,
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    Bot1: {
+        fontSize: 13,
+        color: "#000",
+        padding: 5,
+        paddingBottom: 0,
+        textAlign: "center",
+    },
+    iimage: {
+        width: 150,
+        height: 150,
+        borderRadius: 20,
+    },
+    iimage1: {
+        width: 80,
+        height: 80,
+        borderRadius: 10,
+    },
 });
 
 
