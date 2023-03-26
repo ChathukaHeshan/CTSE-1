@@ -5,9 +5,7 @@ import 'react-native-gesture-handler';
 import 'react-native-reanimated';
 import DrawerHome from '../DrawerScreens/DrawerHome';
 import Products from '../DrawerScreens/Products';
-import MyCart from '../DrawerScreens/MyCart';
 import OrderDetail from '../DrawerScreens/OrderDetail';
-import AboutUs from '../DrawerScreens/AboutUs';
 import CustomDrawer from '../DrawerScreens/CustomDrawer';
 import UserAccount from '../DrawerScreens/UserAccount'
 import { CommonActions } from '@react-navigation/native'
@@ -58,7 +56,6 @@ export default function Home(navigation) {
                 name="DrawerHome"
                 component={DrawerHome}
                 options={({ navigation }) => ({
-                    //headerShown: false,
                     title: 'Home',
                     drawerIcon: ({ color, size }) => (
                         <MaterialCommunityIcons name="home" color={'#f7d081'} size={30} />
@@ -106,19 +103,6 @@ export default function Home(navigation) {
                 })}
             />
             <Drawer.Screen
-                name="MyCart"
-                component={MyCart}
-                options={{
-                    title: 'MyCart',
-                    drawerIcon: ({ color, size }) => (
-                        <MaterialCommunityIcons name="cart-outline" color={'#f7d081'} size={30} />
-                    ), headerTintColor: '#fff',
-                    headerStyle: {
-                        backgroundColor: '#000'
-                    },
-                }}
-            />
-            <Drawer.Screen
                 name="OrderDetail"
                 component={OrderDetail}
                 options={{
@@ -139,27 +123,8 @@ export default function Home(navigation) {
                     drawerIcon: ({ color, size }) => (
                         <MaterialCommunityIcons name="account" color={'#f7d081'} size={30} />
                     ), headerTintColor: '#fff',
-                    headerStyle: {
-                        backgroundColor: '#000'
-                    },
-
                 }}
             />
-
-            {/* <Drawer.Screen
-                name="AboutUs"
-                component={AboutUs}
-                options={{
-                    title: 'AboutUs',
-                    drawerIcon: ({ color, size }) => (
-                        <MaterialCommunityIcons name="information-outline" color={'#f7d081'} size={30} />
-                    ), headerTintColor: '#fff',
-                    headerStyle: {
-                        backgroundColor: '#000'
-                    },
-
-                }}
-            /> */}
             <Drawer.Screen
                 name="Logout"
                 component={Logout}
