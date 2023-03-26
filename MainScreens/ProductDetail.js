@@ -195,7 +195,6 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: 'center',
         backgroundColor: "white",
-        padding: 15,
         width: '90%',
         borderRadius: 15, marginTop: -20, margin: 15,
     },
