@@ -30,7 +30,7 @@ const AdminScreen = ({ route, navigation }) => {
         read();
     }, []);
 
-    // read data
+  
     const read = () => {
         setshow(true)
         setTimeout(() => {
@@ -66,7 +66,7 @@ const AdminScreen = ({ route, navigation }) => {
             "",
             "Are you sure you want to remove this product?",
             [
-                // The "Yes" button
+                
                 {
                     text: "Yes",
                     onPress: () => {
